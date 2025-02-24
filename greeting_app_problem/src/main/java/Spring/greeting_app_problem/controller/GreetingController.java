@@ -1,7 +1,9 @@
 package Spring.greeting_app_problem.controller;
 
 
-import org.springframework.web.bind.annotation.*;
+import Spring.greeting_app_problem.service.GreetingService;
+
+
 
 import java.util.Map;
 
@@ -32,5 +34,22 @@ public class GreetingController {
         return Map.of("message", "Hello from DELETE method!");
     }
 
+
+
+//UC02
+    //Extend GreetingController to use Services Layer to get Simple Greeting message ”Hello World”
+
+
+    private final GreetingService greetingService;
+
+    // Constructor-based Dependency Injection
+    public GreetingController(GreetingService greetingService) {
+        this.greetingService = greetingService;
+    }
+
+    @GetMapping("/q")
+    public Map<String, String> getGree() {
+        return Map.of("message", greetingService.getGreetingMessage());
+    }
 
 }
