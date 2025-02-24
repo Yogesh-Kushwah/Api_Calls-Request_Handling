@@ -7,6 +7,7 @@ public class GreetingService {
     public String getGreetingMessage() {
         return "Hello World";
     }
+<<<<<<< HEAD
 
 
     public String generateGreeting(String firstName, String lastName) {
@@ -24,3 +25,6 @@ public class GreetingService {
 
 
 
+=======
+}
+>>>>>>> 3a3d9bb26ff135996afbe7474a66a430c5602b5d
