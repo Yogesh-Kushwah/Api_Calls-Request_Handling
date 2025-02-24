@@ -1,7 +1,9 @@
 package Spring.greeting_app_problem.controller;
 
+
 import Spring.greeting_app_problem.service.GreetingService;
-import org.springframework.web.bind.annotation.*;
+
+
 
 import java.util.Map;
 
@@ -33,6 +35,7 @@ public class GreetingController {
     }
 
 
+
 //UC02
     //Extend GreetingController to use Services Layer to get Simple Greeting message ”Hello World”
 
@@ -48,4 +51,5 @@ public class GreetingController {
     public Map<String, String> getGree() {
         return Map.of("message", greetingService.getGreetingMessage());
     }
+
 }
