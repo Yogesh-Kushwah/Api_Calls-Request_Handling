@@ -79,4 +79,11 @@ public class GreetingController {
         return greetingService.saveGreeting(firstName, lastName);
     }
 
+
+    // UC05: Find Greeting by ID
+    @GetMapping("/{id}")
+    public Greeting getGreetingById(@PathVariable Long id) {
+        return greetingService.getGreetingById(id);
+    }
+
 }

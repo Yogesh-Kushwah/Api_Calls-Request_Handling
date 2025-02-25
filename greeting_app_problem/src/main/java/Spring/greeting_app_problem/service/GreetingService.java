@@ -49,5 +49,11 @@ public class GreetingService {
         return greetingRepository.save(greeting);
     }
 
+
+    // UC05: Find a Greeting by ID
+    public Greeting getGreetingById(Long id) {
+        return greetingRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Greeting not found with ID: " + id));
+    }
 }
 
