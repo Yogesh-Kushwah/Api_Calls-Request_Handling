@@ -1,11 +1,6 @@
 HELP.md
 target/
-<<<<<<< HEAD
 !.mvn/wrapper/maven-wrapper.jar
-=======
-
-.mvn/wrapper/maven-wrapper.jar
->>>>>>> 3a3d9bb26ff135996afbe7474a66a430c5602b5d
 !**/src/main/**/target/
 !**/src/test/**/target/
 

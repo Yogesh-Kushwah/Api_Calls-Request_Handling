@@ -1,9 +1,13 @@
 package Spring.greeting_app_problem.controller;
 
+import Spring.greeting_app_problem.model.Greeting;
 import Spring.greeting_app_problem.service.GreetingService;
+import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
+@Component
 @RestController
 @RequestMapping("/greet")
 public class GreetingController {
@@ -31,6 +35,7 @@ public class GreetingController {
         return Map.of("message", "Hello from DELETE method!");
     }
 
+
 //UC02
     //Extend GreetingController to use Services Layer to get Simple Greeting message ”Hello World”
 
@@ -49,7 +54,6 @@ public class GreetingController {
     }
 
 
-
     //UC 03
 
     // GET method with optional parameters for firstName and lastName
@@ -59,6 +63,20 @@ public class GreetingController {
             @RequestParam(required = false) String lastName) {
         String greetingMessage = greetingService.generateGreeting(firstName, lastName);
         return "{\"message\": \"" + greetingMessage + "\"}";
+    }
+
+    //UC04
+
+    // Save greeting & return response
+    @PostMapping("/save")
+    public Greeting saveGreeting(
+            @RequestParam(required = false) String firstName,
+            @RequestParam(required = false) String lastName) {
+
+        System.out.println("Received firstName: " + firstName);
+        System.out.println("Received lastName: " + lastName);
+
+        return greetingService.saveGreeting(firstName, lastName);
     }
 
 }
