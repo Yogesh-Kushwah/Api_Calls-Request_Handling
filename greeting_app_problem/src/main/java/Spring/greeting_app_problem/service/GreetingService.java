@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service
 public class GreetingService {
@@ -55,5 +57,11 @@ public class GreetingService {
         return greetingRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Greeting not found with ID: " + id));
     }
+
+    // UC06: Retrieve All Greetings
+    public List<Greeting> getAllGreetings() {
+        return greetingRepository.findAll();
+    }
+
 }
 
