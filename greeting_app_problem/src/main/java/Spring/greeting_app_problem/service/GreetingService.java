@@ -63,5 +63,26 @@ public class GreetingService {
         return greetingRepository.findAll();
     }
 
+    // UC07: Update an Existing Greeting
+    public Greeting updateGreeting(Long id, String firstName, String lastName) {
+        // Find existing Greeting by ID
+        Greeting existingGreeting = greetingRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Greeting not found with ID: " + id));
+
+        // Update the fields if new values are provided
+        if (firstName != null) {
+            existingGreeting.setFirstName(firstName);
+        }
+        if (lastName != null) {
+            existingGreeting.setLastName(lastName);
+        }
+
+        // Generate a new message based on updated names
+        existingGreeting.setMessage(generateGreeting(firstName, lastName));
+
+        // Save the updated Greeting to the database
+        return greetingRepository.save(existingGreeting);
+    }
+
 }
 
